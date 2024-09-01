@@ -43,13 +43,19 @@ END:VCARD`;
   }
 });
 
-app.get("/qrgen", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/index.html"));
+//new redirects
+app.get('/qrgen', (req, res) => {
+  res.redirect('https://multi-qr-code-generator.vercel.app/');
 });
 
-app.get("/api", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/api.html"));
+app.get('/api', (req, res) => {
+  res.redirect('https://multi-qr-code-generator.vercel.app/api');
 });
+
+app.get('/', (req, res) => {
+  res.redirect('https://multi-qr-code-generator.vercel.app/');
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
